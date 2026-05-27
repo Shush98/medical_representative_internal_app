@@ -15,8 +15,8 @@ A professional web application for managing pharmaceutical representatives, doct
 ## Tech Stack
 
 - **Frontend**: React 18 + Vite + Tailwind CSS (deployed on Vercel)
-- **Backend**: FastAPI + SQLAlchemy 2.0 + Alembic (deployed on Railway)
-- **Database**: PostgreSQL (Railway managed)
+- **Backend**: FastAPI + SQLAlchemy 2.0 + Alembic (deployed on Render)
+- **Database**: PostgreSQL (Neon DB managed)
 - **Auth**: JWT — access token in memory, refresh token in httpOnly cookie
 - **Exports**: Excel (openpyxl) + PDF (ReportLab)
 

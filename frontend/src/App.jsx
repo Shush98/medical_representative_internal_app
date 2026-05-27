@@ -4,6 +4,8 @@ import { useAuthStore } from './store/authStore'
 import { _setToken, _getToken } from './api/client'
 import axios from 'axios'
 
+const API_BASE = import.meta.env.VITE_API_URL || ''
+
 import AppShell from './components/layout/AppShell'
 import RoleGuard from './components/layout/RoleGuard'
 import Spinner from './components/shared/Spinner'
@@ -37,10 +39,10 @@ export default function App() {
   const [booting, setBooting] = useState(true)
 
   useEffect(() => {
-    axios.post('/api/auth/refresh', {}, { withCredentials: true })
+    axios.post(`${API_BASE}/api/auth/refresh`, {}, { withCredentials: true })
       .then(({ data }) => {
         _setToken(data.access_token)
-        return axios.get('/api/auth/me', {
+        return axios.get(`${API_BASE}/api/auth/me`, {
           headers: { Authorization: `Bearer ${data.access_token}` },
           withCredentials: true,
         })
